@@ -1,17 +1,20 @@
-## Q1
+Project: E-commerce A/B Testing
 --We are running an experiment at an item-level, which means all users who visit will see the same page, but the layout of different item pages may differ.
---Compare this table to the assignment events we captured for user_level_testing.
---Does this table have everything you need to compute metrics like 30-day view-binary?
 
---Answer: No, we also need data to measure the performance after the test assignment such as 30-day item_view, 
---number of orders, etc.
+Goals:
+--To test if we should implement this new design:
+  --
+
+## Step1 View table
+--The final_assignments_qa table does not have everything we need to compute metrics like 30-day view-binary?
+--we also need data to measure the performance after the test assignment such as 30-day item_view, number of orders, etc.
 
 SELECT 
   * 
 FROM 
   dsv1069.final_assignments_qa
  
-##Q2
+## Step2
 --Reformat the final_assignments_qa to look like the final_assignments table, filling in any missing values with a placeholder of the appropriate data type.
 
 SELECT 
@@ -51,7 +54,7 @@ FROM
   dsv1069.final_assignments_qa
   
 
-## Q3
+## Step3
 -- Use this table to 
 -- compute order_binary for the 30 day window after the test_start_date
 -- for the test named item_test_2
@@ -91,7 +94,7 @@ GROUP BY
   test_assignment
 
 
-## Q4
+## Step4
 -- Use this table to 
 -- compute view_binary for the 30 day window after the test_start_date
 -- for the test named item_test_2
@@ -121,5 +124,5 @@ FROM
    ORDER BY item_id) AS view_binary
 GROUP BY view_binary.test_assignment
 
-## Q5
+## Step5
 --Please refer to the report
